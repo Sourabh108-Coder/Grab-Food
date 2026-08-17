@@ -11,7 +11,7 @@ import MyOrders from './Pages/MyOrders';
 
 function App() {
 
-  const[login,showlogin]=useState(true);
+  const [login, showlogin] = useState(!localStorage.getItem("token"));
 
   return (
     <div className="App">
