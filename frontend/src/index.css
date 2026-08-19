@@ -564,10 +564,10 @@ label{
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('https://tse1.mm.bing.net/th?id=OIP.Zt9L2siMZEld8_nUBIAs0gHaEo&pid=Api&P=0&h=180'); /* Set your background image */
+  background-image: url('https://wallpaperaccess.com/full/1213299.jpg'); /* Set your background image */
   background-size: cover;
   background-position: center;
-  filter: blur(2px); /* Adjust the blur value */
+  filter: blur(0px); /* Adjust the blur value */
   z-index: 1; /* Ensure the blur is behind the content */
 }
 
@@ -774,10 +774,10 @@ content: '';
  left: 0;
  right: 0;
  bottom: 0;
- background-image: url('https://tse1.mm.bing.net/th?id=OIP.Zt9L2siMZEld8_nUBIAs0gHaEo&pid=Api&P=0&h=180'); /* Set your background image */
+ background-image: url('https://wallpaperaccess.com/full/1213299.jpg'); /* Set your background image */
  background-size: cover;
  background-position: center;
- filter: blur(2px); /* Adjust the blur value */
+ filter: blur(0px); /* Adjust the blur value */
  z-index: 1; /* Ensure the blur is behind the content */
 }
 
@@ -1171,4 +1171,38 @@ content: '';
   color:red;
   font-weight: 700px;
   font-style: italic;
+}
+
+/* Empty cart css */
+.empty-cart {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.empty-cart-gif {
+  width: 550px;
+  height:300px;
+}
+
+.empty-cart h2 {
+  margin-top: 20px;
+  font-size: 28px;
+}
+
+.empty-cart p {
+  color: #777;
+}
+
+.empty-cart button {
+  background-color: tomato;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
 }

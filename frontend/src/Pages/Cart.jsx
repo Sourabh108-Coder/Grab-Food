@@ -9,12 +9,32 @@ const Cart = () => {
   const{food_list,addtocart,removecart,cartitem,getcarttotalamount}=useContext(Storecontext);
   const navigate=useNavigate();
 
+   // Check whether cart has at least one item
+  const isCartEmpty = !food_list.some((item) => cartitem[item._id] > 0);
+
   return (
    <div className='cart'>
     <div className='linecart'></div>
 
+    {isCartEmpty ? ( 
+
+          <div className="empty-cart">
+            <img
+              src="https://www.herbsandmore.shop/img/Cart.gif"
+              alt="Cart is empty"
+              className="empty-cart-gif"
+            />
+            <h2>Your Cart is Empty</h2>
+            <p>Add some delicious food to your cart!</p>
+
+            <button onClick={() => navigate("/")}>
+              Go To Home
+            </button>
+        </div>) :(
     
+
     
+    <>
      <div className='class-item'>
       
       <p>Image</p>
@@ -86,6 +106,7 @@ const Cart = () => {
           <button className='sub-but'>Submit</button>
         </div>
       </div>
+      </> )}
       
   
    </div>
