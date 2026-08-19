@@ -1,4 +1,6 @@
 import React from 'react'
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { Globe } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -32,17 +34,11 @@ const Footer = () => {
                     <p className="sec-para">Seamless eating for brighter life</p>
 
                     <div className="logo-of-img">
-                        <img src="https://tse3.mm.bing.net/th?id=OIP.uIUmI8oApoOcdsON4lGWDwHaHp&pid=Api&P=0&h=180"
-                            alt="logo1" className="logo1" />
+                        <a href='https://github.com/Sourabh108-Coder'><FaGithub className="logo1" /></a>
+                        <a href='https://www.linkedin.com/in/sourabh-kumar-407079267/'><FaLinkedin className="logo1" /></a>
+                        <a href='https://thesourabh.pythonanywhere.com/'><Globe className="logo1" /></a>
 
-                        <img src="https://tse2.mm.bing.net/th?id=OIP.IOlJ2wJrAUpUh6T1la8kxAHaEK&pid=Api&P=0&h=180"
-                            alt="logo2" className="logo1" />
-
-                        <img src="https://tse3.mm.bing.net/th?id=OIP.lkR1eCnLcPZ32cYreDUNkgHaHa&pid=Api&P=0&h=180"
-                            alt="logo3" className="logo1" />
-
-                        <img src="https://logos-world.net/wp-content/uploads/2020/05/Logo-WhatsApp.png" alt="logo4"
-                            className="logo1" />
+                        
                     </div>
                 </div>
                 <div className="last-sec-cont-right">
