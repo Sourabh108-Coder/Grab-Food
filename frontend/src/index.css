@@ -895,17 +895,18 @@ content: '';
 
 .pay-but{
   width:20rem;
-  height:2rem;
+  height:3rem;
   text-align: center;
   margin-left: 7rem;
   margin-top: 1rem;
   cursor: pointer;
-  border:2px solid #00FFCB;
   border-radius: 20px;
-  background-image: url("https://tse2.mm.bing.net/th?id=OIP.x9SD1dWwPJV_fvr-8yopJwHaEo&pid=Api&P=0&h=180");
+  border: 2px solid red;
+  background-color: rgb(215, 211, 211);
   font-size: larger;
-  color:white;
+  color:green;
   filter:drop-shadow(1px 1px 25px yellow);
+  font-weight: bold;
 
 }
 
@@ -913,7 +914,6 @@ content: '';
 
   width:30%;
   display: flex;
-  gap:0.7rem;
   flex-direction: column;
   margin-top:1rem;
 
@@ -923,11 +923,11 @@ content: '';
   padding:0.5rem;
   font-family: 'Times New Roman', Times, serif;
 
-  border: 1px solid rgb(7, 255, 7);
+  border: 3px solid rgb(7, 255, 7);
   width:250px;
-  background:rgb(121, 118, 118);
-  color:#00FFCB;
+  color:black;
   font-size: large;
+  font-weight:bold;
 }
 
 .pay-para{
@@ -937,16 +937,18 @@ content: '';
 
 .sub-but{
   width:10rem;
-  height:2rem;
+  height:3rem;
   margin-left: 2.5rem;
   margin-top: 1rem;
   cursor:pointer;
   text-align: center;
   border-radius: 10px;
-  background-image: url("https://tse3.mm.bing.net/th?id=OIP.MwPySyDsnL5JPUoE3ezXqQHaCF&pid=Api&P=0&h=180");
+  background-color: rgb(190, 189, 189);
+  color:green;
+  border:2px solid red;
   font-size: larger;
-  color:#00FFCB;
-  filter:drop-shadow(1px 1px 10px #00FFCB);
+  filter:drop-shadow(10px 10px 10px #e1ff00);
+  font-weight: bold;
 }
 
 .pay-form
