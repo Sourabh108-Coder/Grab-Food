@@ -85,7 +85,7 @@ const Login = ({showlogin}) => {
             loginstate=="signup"?
             <div>
                  <label htmlFor="inp1">USERNAME</label>
-                 <br/><br/>
+                 <br/>
                 <input type="text" id="inp1" required placeholder='Enter your First Name' value={formdata.name} onChange={onchangehandler} name="name" className='input2-field'/>
                  <br/><br/>
             </div>:
@@ -96,13 +96,13 @@ const Login = ({showlogin}) => {
        
 
         <label htmlFor="inp2">EMAIL</label>
-        <br/><br/>
+        <br/>
         <input type="email" id="inp2" required placeholder='Enter your Email Address' name="email" onChange={onchangehandler} value={formdata.email} className='input1-field'/>
 
         <br/><br/>
 
         <label htmlFor="inp3">PASSWORD</label>
-        <br/><br/>
+        <br/>
         <input type="password" id="inp3" required  placeholder='Enter your Password' name="password" onChange={onchangehandler} value={formdata.password} className='input1-field'/>
 
         <br/><br/>

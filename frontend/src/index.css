@@ -136,6 +136,11 @@ code {
   font-weight:500;
 }
 
+.hero-para
+{
+  line-height: 1.6;
+}
+
 .but1{
   height:2rem;
   width: 10rem;
@@ -494,7 +499,7 @@ a{
   border-radius: 20px;
   border: 1px solid rgb(7, 255, 7);
   background:rgba(255,255,255,0.3);
-  /* color:#00FFCB; */
+  margin-top: 0.3rem;
   color:#00FFCB;
   font-size: large;
   width:300px;
@@ -506,6 +511,7 @@ a{
 
 .input1-field{
   padding:0.5rem;
+  margin-top: 0.3rem;
   font-family: 'Times New Roman', Times, serif;
   border-radius: 20px;
   border: 1px solid rgb(7, 255, 7);
@@ -669,7 +675,7 @@ label{
   font-weight: 700;
   color: #313133;
   background: #4FD1C5;
-background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
   border: none;
   border-radius: 1000px;
   box-shadow: 12px 12px 24px rgba(79,209,197,.64);
@@ -678,6 +684,7 @@ background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 10
   outline: none;
   position: relative;
   padding: 10px;
+  margin-top: 1.5rem;
   }
 
 .button::before {

@@ -15,7 +15,7 @@ const Fooditem = ({id,name,description,image,price}) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      toast.error("Please login first!");
+      toast.error("Please Login to access functionality!");
       return;
     }
 

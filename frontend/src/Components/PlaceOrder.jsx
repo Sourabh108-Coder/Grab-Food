@@ -2,6 +2,7 @@ import React , { useContext, useEffect, useState } from 'react'
 import { Storecontext } from '../Context/Storecontext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const PlaceOrder = () => {
 
@@ -138,11 +139,13 @@ const PlaceOrder = () => {
 
       if(!token)
       {
+         toast.error("Please Login to access functionality!");
          navigate("/cart");
       }
 
       else if(getcarttotalamount()===0)
       {
+         toast.info("Please fill the cart first!");
          navigate("/cart");
       }
    },[token])
