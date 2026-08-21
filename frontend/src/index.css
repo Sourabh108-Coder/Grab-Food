@@ -2016,13 +2016,11 @@ content: '';
     }
 
     .reserved-para {
-        font-size: 11px;
+        font-size: 20px;
 
         line-height: 1.5;
 
         margin: 0;
-
-        color: #666;
     }
 
 }
@@ -2107,7 +2105,7 @@ content: '';
     /* Copyright */
 
     .reserved-para {
-        font-size: 10px;
+        font-size: 13px;
     }
 
 }
