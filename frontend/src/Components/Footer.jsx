@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="last-section" id='but3'>
             <div className="last-sec-cont1">
 
-                <div className="last-sec-cont-left">
+                <div className="last-sec-cont-left-foot">
                     <div className="sec-head">
                         <img src="https://media2.giphy.com/media/KfxPgR9Xb6lRvlFa8x/source.gif"
                             alt="sec-logo" className="sec-logo"/>
@@ -41,7 +41,7 @@ const Footer = () => {
                         
                     </div>
                 </div>
-                <div className="last-sec-cont-right">
+                <div className="last-sec-cont-right-foot">
 
                     <div className="grid-div-1">
                         <ul className="list1">

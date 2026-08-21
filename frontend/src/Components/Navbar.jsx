@@ -48,7 +48,7 @@ const Navbar = ({ showlogin }) => {
             <Link to="/">
                 <img
                     src="https://tse2.mm.bing.net/th?id=OIP.TWXYdjQIRGSOdvVJq73IXwHaBX&pid=Api&P=0&h=180"
-                    className="logo2"
+                    className="logo-navu"
                     alt="Logo"
                 />
             </Link>
