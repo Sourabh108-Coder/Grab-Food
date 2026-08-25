@@ -35,6 +35,13 @@ const Cart = () => {
 
     
     <>
+
+    <div className="mobile-scroll-hint">
+      ← Swipe to see more →
+    </div>
+
+    <div className="cart-table-scroll">
+
      <div className='class-item'>
       
       <p>Image</p>
@@ -74,6 +81,8 @@ const Cart = () => {
         })
       } 
 
+      </div>
+
 
     
 
@@ -102,6 +111,7 @@ const Cart = () => {
 
         <div className='right'>
           <h3 className='pay-para'>If you have a Promo Code <br/>Enter Here <MdWhereToVote /></h3>
+          <h3 className='pay-para-copy'>Enter Promo Code Here. If any ? </h3>
           <input type="text" placeholder='Enter Code' className='input-field'/>
           <button className='sub-but'>Submit</button>
         </div>
