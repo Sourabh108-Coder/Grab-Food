@@ -39,7 +39,7 @@ const MyOrders = () => {
   return (
     <div className='myorders'>
 
-        <h1 className='lsthead'>My Orders <IoFastFoodSharp /></h1>
+        <h1 className='lsthead'>My Orders</h1>
 
         <div className='container'>
             {

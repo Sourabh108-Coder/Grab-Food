@@ -2542,3 +2542,330 @@ content: '';
     font-size: 15px;
   }
 }
+
+/* My Order Page Responsiveness */
+
+/* =========================================
+   ATTRACTIVE MOBILE CSS - MY ORDERS
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .myorders {
+    width: 100%;
+    min-height: 100vh;
+    padding: 25px 15px 40px;
+    background: #fafafa;
+    box-sizing: border-box;
+  }
+
+  /* Heading */
+  .lsthead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-left: 5rem;
+
+    font-size: 47px;
+    font-weight: 700;
+    color: #222;
+  }
+
+  .lsthead svg {
+    color: #ff4d24;
+    font-size: 37px;
+  }
+
+
+  /* Orders container */
+  .container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+
+  /* Individual order card */
+  .lstdiv {
+    width: 100%;
+    min-height: 145px;
+
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    column-gap: 14px;
+
+    padding: 17px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+
+    position: relative;
+    overflow: hidden;
+
+    transition: 0.25s ease;
+  }
+
+  .lstdiv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+  }
+
+
+  /* Food GIF */
+  .lstgif {
+    width: 60px;
+    height: 60px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    grid-row: 1 / 5;
+
+    background: #fff3ef;
+
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+
+  /* Food items */
+  .lstdiv p {
+    margin: 0;
+    padding: 0;
+
+    font-size: 20px;
+    line-height: 1.5;
+
+    color: #555;
+
+    word-break: break-word;
+  }
+
+
+  /* First paragraph - food names */
+  .lstdiv p:nth-of-type(1) {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #222;
+
+    padding-right: 5px;
+
+    margin-bottom: 5px;
+  }
+
+
+  /* Price */
+  .lstdiv p:nth-of-type(2) {
+    font-size: 17px;
+    font-weight: 700;
+
+    color: #ff4d24;
+
+    margin-bottom: 4px;
+  }
+
+
+  /* Items count */
+  .lstdiv p:nth-of-type(3) {
+    font-size: 12px;
+    color: #888;
+
+    margin-bottom: 4px;
+  }
+
+
+  /* Order status */
+  .lstdiv p:nth-of-type(4) {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #fff4ed;
+    color: #ff4d24;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: capitalize;
+  }
+
+
+  /* Track button */
+  .tr-but {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    height: 44px;
+
+    margin-top: 13px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+      135deg,
+      #ff512f,
+      #ff7043
+    );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 12px rgba(255, 81, 47, 0.25);
+
+    transition: all 0.2s ease;
+  }
+
+  .tr-but:hover {
+    background: linear-gradient(
+      135deg,
+      #f04423,
+      #ff5d32
+    );
+  }
+
+  .tr-but:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 6px rgba(255, 81, 47, 0.2);
+  }
+}
+
+
+/* =========================================
+   SMALL PHONES
+   ========================================= */
+
+@media (max-width: 480px) {
+
+  .myorders {
+    padding: 20px 12px 35px;
+  }
+
+
+  .lsthead {
+    font-size: 47px;
+  }
+
+  .lsthead svg {
+    font-size: 24px;
+  }
+
+
+  .container {
+    gap: 15px;
+  }
+
+
+  .lstdiv {
+    grid-template-columns: 55px 1fr;
+
+    padding: 14px;
+
+    border-radius: 15px;
+
+    min-height: 140px;
+  }
+
+
+  .lstgif {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 12px;
+  }
+
+
+  .lstdiv p:nth-of-type(1) {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+
+  .lstdiv p:nth-of-type(2) {
+    font-size: 20px;
+  }
+
+
+  .lstdiv p:nth-of-type(3) {
+    font-size: 14px;
+  }
+
+
+  .lstdiv p:nth-of-type(4) {
+    font-size: 15px;
+    padding: 4px 9px;
+  }
+
+
+  .tr-but {
+    height: 52px;
+
+    margin-top: 11px;
+
+    border-radius: 9px;
+
+    font-size: 20px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 360px) {
+
+  .myorders {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .lsthead {
+    font-size: 47px;
+  }
+
+  .lstdiv {
+    grid-template-columns: 48px 1fr;
+    padding: 12px;
+  }
+
+  .lstgif {
+    width: 46px;
+    height: 46px;
+  }
+
+  .lstdiv p:nth-of-type(1) {
+    font-size: 12px;
+  }
+
+  .lstdiv p:nth-of-type(2) {
+    font-size: 15px;
+  }
+
+  .tr-but {
+    height: 40px;
+  }
+}
+
