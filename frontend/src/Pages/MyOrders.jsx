@@ -65,7 +65,7 @@ const MyOrders = () => {
 
                             <p>${order.amount}.00</p>
                             <p>Items:{order.items.length}</p>
-                            <p>🍕{order.status}</p>
+                            <p>{order.Payment ? `🍕${order.status}` : "❌ Order Cancelled"}</p>
 
                             <button className='tr-but' onClick={fetchuserorders}><b>Track Order</b></button>
 

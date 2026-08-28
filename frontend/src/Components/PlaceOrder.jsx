@@ -81,7 +81,7 @@ const PlaceOrder = () => {
 
                 // Set up Razorpay payment options
                 const options = {
-                    key: "rzp_test_xWuAjh4qFAuptt", // Your Razorpay Key ID
+                    key: process.env.REACT_APP_RAZORPAY_KEY_ID,  // Your Razorpay Key ID
                     amount: amount, // Amount in paise (multiply by 100)
                     currency: currency, // Currency type
                     name: 'Grab Food', // Name of your company
@@ -91,7 +91,7 @@ const PlaceOrder = () => {
                     handler: async function (response) {
                         // Handle successful payment
                         console.log(response);
-                        alert("Payment Successful!");
+                        toast.success("Payment Successful!");
 
                         const val=await axios.post("http://localhost:4000/api/v1/grabfood/verify",{orderid:newid,success:"true"});
                         console.log("hello"+val);
@@ -120,6 +120,16 @@ const PlaceOrder = () => {
                     theme: {
                         color: "#F37254", // Your theme color
                     },
+
+                    modal: {
+                       ondismiss : function(){
+                          toast.info("Payment cancelled"); 
+                          navigate("/cart");
+                       },
+                       confirm_close: true,
+                       escape: true, 
+                       backdropclose: true
+                    }
                 };
 
                 // Initialize Razorpay checkout
