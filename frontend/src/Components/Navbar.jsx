@@ -66,6 +66,7 @@ const Navbar = ({ showlogin }) => {
         settoken("");
         navigate("/");
         setMobileMenuOpen(false);
+        window.location.reload();
     };
 
     const closeMobileMenu = () => {

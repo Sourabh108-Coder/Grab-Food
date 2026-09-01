@@ -1,6 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, } from 'react'
 import { Storecontext } from '../Context/Storecontext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 import { IoFastFoodSharp } from "react-icons/io5";
 
@@ -9,6 +11,16 @@ const MyOrders = () => {
     const[userorders,setuserorders]=useState([]);
 
     const{token}=useContext(Storecontext);
+    const navigate=useNavigate();
+
+    useEffect(()=>{
+      
+        if(!token)
+        {
+            toast.error("Please Login to access functionality!");
+            navigate("/");
+        }
+    },[token])
 
     const fetchuserorders=async()=>
     {
@@ -43,7 +55,15 @@ const MyOrders = () => {
 
         <div className='container'>
             {
-                userorders.map((order,index)=>{
+                userorders.length === 0 ? (
+                    <div className='no-orders'>
+                        <img src='https://media1.giphy.com/media/X9wdHtZzVFAjJ1QgmZ/giphy.gif' className='no-orders-gif' alt='No orders'/>
+                        <h2>No Orders Yet</h2>
+                        <p>You haven't placed any orders yet.</p>
+
+                    </div>
+                ):
+                (userorders.map((order,index)=>{
 
                     return(
 
@@ -71,7 +91,7 @@ const MyOrders = () => {
 
                         </div>
                     )
-                })
+                }))
             }
         </div>
      

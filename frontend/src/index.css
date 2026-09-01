@@ -1225,6 +1225,36 @@ content: '';
   margin-top: 10px;
 }
 
+
+.no-orders {
+    width: 100%;
+    min-height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.no-orders-gif {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.no-orders h2 {
+    margin: 10px 0 5px;
+    font-size: 28px;
+}
+
+.no-orders p {
+    color: #777;
+    font-size: 16px;
+}
+
+
 /* Navbar responsiveness */
 
 @media (max-width: 768px) {

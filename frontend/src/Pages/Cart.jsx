@@ -1,16 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Storecontext } from '../Context/Storecontext';
 import { MdDeleteForever } from "react-icons/md";
 import { MdWhereToVote } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 const Cart = () => {
 
-  const{food_list,addtocart,removecart,cartitem,getcarttotalamount}=useContext(Storecontext);
+  const{food_list,addtocart,removecart,cartitem,getcarttotalamount,token}=useContext(Storecontext);
   const navigate=useNavigate();
 
    // Check whether cart has at least one item
   const isCartEmpty = !food_list.some((item) => cartitem[item._id] > 0);
+
+  useEffect(()=>{
+  
+    if(!token)
+    {
+        toast.error("Please Login to access functionality!");
+        navigate("/");
+    }
+  },[token])
 
   return (
    <div className='cart'>
