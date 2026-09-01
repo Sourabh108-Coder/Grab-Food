@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { FaHome } from "react-icons/fa";
 import { MdRestaurantMenu } from "react-icons/md";
 import { ImSearch } from "react-icons/im";
 import { FaBasketShopping } from "react-icons/fa6";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation  } from 'react-router-dom';
 import { Storecontext } from '../Context/Storecontext';
 import { BsPersonCircle } from "react-icons/bs";
 import { IoMdLogOut } from "react-icons/io";
@@ -25,6 +25,37 @@ const Navbar = ({ showlogin }) => {
     } = useContext(Storecontext);
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const goToSection = (sectionId, menuName) => {
+        setmenu(menuName);
+        setMobileMenuOpen(false);
+
+        if (location.pathname !== "/") {
+            navigate("/", {
+                state: {
+                    scrollTo: sectionId
+                }
+            });
+        } else {
+            document.getElementById(sectionId)?.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    };
+
+    useEffect(() => {
+       if (location.state?.scrollTo) {
+           setTimeout(() => {
+               document
+                   .getElementById(location.state.scrollTo)
+                   ?.scrollIntoView({
+                       behavior: "smooth"
+                   });
+           }, 100);
+       }
+   }, [location]);
+
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -68,7 +99,7 @@ const Navbar = ({ showlogin }) => {
                 <a
                     href="#but1"
                     className={menu === "Menu" ? "active" : ""}
-                    onClick={() => setmenu("Menu")}
+                    onClick={() => goToSection("but1", "Menu")}
                 >
                     Menu
                 </a>
@@ -76,7 +107,7 @@ const Navbar = ({ showlogin }) => {
                 <a
                     href="#but2"
                     className={menu === "Mobile" ? "active" : ""}
-                    onClick={() => setmenu("Mobile")}
+                    onClick={() => goToSection("but2", "Mobile")}
                 >
                     Mobile-App
                 </a>
@@ -84,7 +115,7 @@ const Navbar = ({ showlogin }) => {
                 <a
                     href="#but3"
                     className={menu === "Contact" ? "active" : ""}
-                    onClick={() => setmenu("Contact")}
+                    onClick={() => goToSection("but3", "Contact")}
                 >
                     Contact Us
                 </a>
@@ -285,10 +316,7 @@ const Navbar = ({ showlogin }) => {
                     className={`mobile-nav-item ${
                         menu === "Menu" ? "active" : ""
                     }`}
-                    onClick={() => {
-                        setmenu("Menu");
-                        closeMobileMenu();
-                    }}
+                   onClick={() => goToSection("but1", "Menu")}
                 >
                     <span className='nav-span'><MdRestaurantMenu className="mobile-nav-icon"/> Menu</span>
                 </a>
@@ -300,10 +328,7 @@ const Navbar = ({ showlogin }) => {
                     className={`mobile-nav-item ${
                         menu === "Mobile" ? "active" : ""
                     }`}
-                    onClick={() => {
-                        setmenu("Mobile");
-                        closeMobileMenu();
-                    }}
+                    onClick={() => goToSection("but2", "Mobile")}
                 >
                     <span className='nav-span'><FaMobileScreen className="mobile-nav-icon"/> Mobile-App</span>
                 </a>
@@ -315,10 +340,7 @@ const Navbar = ({ showlogin }) => {
                     className={`mobile-nav-item ${
                         menu === "Contact" ? "active" : ""
                     }`}
-                    onClick={() => {
-                        setmenu("Contact");
-                        closeMobileMenu();
-                    }}
+                    onClick={() => goToSection("but3", "Contact")}
                 >
                     <span className='nav-span'><FaPhoneAlt /> Contact Us</span>
                 </a>
