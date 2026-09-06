@@ -8,6 +8,10 @@ const Sidebar = () => {
   return (
     <div className='side'>
 
+      <NavLink to="/" className="same">
+       <div>🏠</div>
+       <p>Dashboard</p>
+      </NavLink>
       <NavLink to="/add" className='same'>
         <div><IoIosAddCircleOutline className='logo' /></div>
         <p>Add-Items</p>
