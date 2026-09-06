@@ -225,7 +225,7 @@ code {
     gap: 10px;
   }
 
-  .logo {
+  .grab-logo {
     width: 110px;
   }
 }
@@ -240,52 +240,160 @@ code {
  
 }
 
+/* Sidebar css start */
+.side {
+  width: 240px;
+  min-width: 240px;
+  min-height: calc(100vh - 79px);
 
-.side
-{
-  min-width:18%;
-  /* height:200vw; */
-  border-right: 2px solid grey;
+  padding: 25px 15px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e5e7eb;
+
   display: flex;
   flex-direction: column;
-  gap:0.5rem;
- 
-  
-  /* background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100');
-  background-position: center; */
-  
+  gap: 8px;
+
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.03);
 }
 
-.same
-{
+
+/* =========================
+   SIDEBAR LINKS
+========================= */
+
+.same {
+  position: relative;
+
   display: flex;
-  gap:1rem;
-  justify-content: center;
   align-items: center;
-  border:1px solid red;
-  border-right: 0;
-  margin-left: 3rem;
-  margin-top: 2rem;
-  cursor: pointer;
+
+  gap: 15px;
+
+  width: 100%;
+  height: 52px;
+
+  padding: 0 18px;
+
+  box-sizing: border-box;
+
+  border-radius: 12px;
+
   text-decoration: none;
-  color:black;
-  font-style: bold;
 
+  color: #6b7280;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
 }
 
 
-.logo
-{
-  width:2rem;
-  height: 2rem;
-  cursor: pointer;
+/* Icon */
+
+.side-icon {
+  width: 23px;
+  height: 23px;
+
+  flex-shrink: 0;
+
+  color: #6b7280;
+
+  transition: all 0.25s ease;
 }
 
-.active
-{
-  background-color: tomato;
-  color: yellow;
+
+/* Hover */
+
+.same:hover {
+  background: #f5f3ff;
+  color: #4f46e5;
+
+  transform: translateX(3px);
 }
+
+.same:hover .side-icon {
+  color: #4f46e5;
+}
+
+
+/* Active link */
+
+.same.active {
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #6366f1
+  );
+
+  color: #ffffff;
+
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.25);
+}
+
+.same.active .side-icon {
+  color: #ffffff;
+}
+
+
+/* Small active indicator */
+
+.same.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: -15px;
+
+  width: 4px;
+  height: 28px;
+
+  background: #4f46e5;
+
+  border-radius: 0 5px 5px 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+  .side {
+    width: 75px;
+    min-width: 75px;
+
+    padding: 20px 10px;
+  }
+
+  .same {
+    justify-content: center;
+
+    padding: 0;
+
+    gap: 0;
+  }
+
+  .same span {
+    display: none;
+  }
+
+  .side-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+
+/* Sidebar css ends */
 
 .next-portion
 {
