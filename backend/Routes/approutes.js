@@ -10,6 +10,8 @@ const { verifyorder, userorders, listorders, updatestatus } = require("../Contro
 
 const {Placeorder}=require("../Controllers/ordercontroller");
 
+const {dashboard} = require("../Controllers/admindashboardcontroller");
+
 const authmiddleware=require("../middleware/auth");
 
 
@@ -40,5 +42,7 @@ router.post("/listorder",authmiddleware,userorders);
 router.get("/listadmin",listorders);
 
 router.post("/updatestatus",updatestatus);
+
+router.get("/admindashboard",dashboard);
 
 module.exports=router;
