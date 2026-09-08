@@ -833,61 +833,672 @@ code {
 }
 
 /* Add items css ends */
-.listi
-{
-  width:100%;
+
+/* List page css starts */
+
+.list-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 35px 45px;
+
+  box-sizing: border-box;
+
+  background: #f8f9ff;
 }
 
 
-.list-table-format
-{
-  display:grid;
-  grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
-  /* align-items: center; */
-  gap:10px;
-  padding:12px;
-  margin-left:80px;
-  margin-right: 80px;
-  border:1px solid #757171;
-  font-size:20px;
-  /* margin: auto; */
-}
+/* =========================================
+   HEADER
+========================================= */
 
-.listi-img
-{
-  width:80px;
-  height:80px;
-  border-radius: 80px;
+.list-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
 }
 
 
-.title
-{
-  background-color: #f9f9f9;
+.list-header h1 {
+  margin: 0;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  color: #1f2937;
 }
 
-.list-table-format1
-{
-  display:grid;
-  grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
-  /* align-items: center; */
-  gap:10px;
-  padding:12px;
-  margin-left:80px;
-  margin-right: 80px;
-  border:1px solid #1e1d1d;
-  font-size:20px;
+
+.list-header p {
+  margin: 7px 0 0;
+
+  color: #9ca3af;
+
+  font-size: 14px;
 }
 
-.list-head
-{
-  margin-left:5rem;
+
+.list-count {
+  min-width: 100px;
+
+  padding: 14px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  color: white;
+
+  box-shadow:
+    0 7px 18px rgba(79, 70, 229, 0.22);
 }
 
-.cross
-{
+
+.list-count span {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+
+.list-count small {
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  opacity: 0.85;
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.list-card {
+  width: 100%;
+
+  background: white;
+
+  border: 1px solid #e8eaf2;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 30px rgba(31, 41, 55, 0.06);
+}
+
+
+/* =========================================
+   TABLE HEADER
+========================================= */
+
+.list-table-header {
+  display: grid;
+
+  grid-template-columns:
+    0.7fr
+    2fr
+    1fr
+    1.2fr
+    0.8fr;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 17px 25px;
+
+  background: linear-gradient(
+    135deg,
+    #f5f3ff,
+    #eef2ff
+  );
+
+  border-bottom: 1px solid #e5e7eb;
+
+  color: #6b7280;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   FOOD ROW
+========================================= */
+
+.food-row {
+  display: grid;
+
+  grid-template-columns:
+    0.7fr
+    2fr
+    1fr
+    1.2fr
+    0.8fr;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 17px 25px;
+
+  border-bottom: 1px solid #f0f1f5;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.food-row:last-child {
+  border-bottom: none;
+}
+
+
+.food-row:hover {
+  background: #fafaff;
+}
+
+
+/* =========================================
+   FOOD IMAGE
+========================================= */
+
+.food-image-container {
+  display: flex;
+
+  align-items: center;
+}
+
+
+.food-list-image {
+  width: 65px;
+  height: 65px;
+
+  object-fit: cover;
+
+  border-radius: 14px;
+
+  border: 3px solid #eef2ff;
+
+  box-shadow:
+    0 5px 15px rgba(79, 70, 229, 0.10);
+
+  transition: transform 0.25s ease;
+}
+
+
+.food-row:hover .food-list-image {
+  transform: scale(1.05);
+}
+
+
+/* =========================================
+   FOOD NAME
+========================================= */
+
+.food-name h3 {
+  margin: 0;
+
+  color: #374151;
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+
+.food-name span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #9ca3af;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.food-price {
+  color: #4f46e5;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+.category-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  background: #eef2ff;
+
+  color: #6366f1;
+
+  border: 1px solid #e0e7ff;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   DELETE BUTTON
+========================================= */
+
+.delete-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 8px 12px;
+
+  border: 1px solid #fee2e2;
+
+  border-radius: 9px;
+
+  background: #fff5f5;
+
+  color: #ef4444;
+
   cursor: pointer;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  transition: all 0.25s ease;
 }
+
+
+.delete-button:hover {
+  background: #fee2e2;
+
+  border-color: #fecaca;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(239, 68, 68, 0.12);
+}
+
+
+.delete-button:active {
+  transform: translateY(0);
+}
+
+
+.delete-icon {
+  font-size: 13px;
+}
+
+
+.delete-text {
+  font-size: 12px;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-list {
+  min-height: 350px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 30px;
+}
+
+
+.empty-icon {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    #eef2ff,
+    #f5f3ff
+  );
+
+  font-size: 30px;
+
+  box-shadow:
+    0 6px 20px rgba(79, 70, 229, 0.08);
+}
+
+
+.empty-list h2 {
+  margin: 0;
+
+  color: #374151;
+
+  font-size: 20px;
+}
+
+
+.empty-list p {
+  margin: 8px 0 0;
+
+  color: #9ca3af;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+  .list-page {
+    padding: 30px;
+  }
+
+
+  .list-table-header,
+  .food-row {
+
+    grid-template-columns:
+      0.7fr
+      1.8fr
+      1fr
+      1fr
+      0.8fr;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+  }
+
+
+  .food-list-image {
+    width: 58px;
+    height: 58px;
+  }
+
+
+  .list-header h1 {
+    font-size: 27px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .list-page {
+    padding: 20px 15px;
+  }
+
+
+  .list-header {
+    align-items: flex-start;
+
+    margin-bottom: 22px;
+  }
+
+
+  .list-header h1 {
+    font-size: 23px;
+  }
+
+
+  .list-header p {
+    max-width: 220px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+
+  .list-count {
+    min-width: 65px;
+
+    padding: 10px 12px;
+
+    border-radius: 11px;
+  }
+
+
+  .list-count span {
+    font-size: 19px;
+  }
+
+
+  .list-count small {
+    font-size: 9px;
+  }
+
+
+  /* Hide desktop table header */
+
+  .list-table-header {
+    display: none;
+  }
+
+
+  /* Convert rows into cards */
+
+  .food-row {
+
+    display: grid;
+
+    grid-template-columns: 70px 1fr auto;
+
+    grid-template-areas:
+
+      "image name delete"
+
+      "image price category";
+
+    gap: 8px 14px;
+
+    padding: 18px;
+
+    border-bottom: 1px solid #f0f1f5;
+
+  }
+
+
+  .food-image-container {
+    grid-area: image;
+
+    align-self: center;
+  }
+
+
+  .food-list-image {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 14px;
+  }
+
+
+  .food-name {
+    grid-area: name;
+
+    align-self: end;
+  }
+
+
+  .food-price {
+    grid-area: price;
+
+    align-self: start;
+
+    font-size: 14px;
+  }
+
+
+  .food-row > div:nth-child(4) {
+    grid-area: category;
+
+    justify-self: start;
+  }
+
+
+  .food-row > div:nth-child(5) {
+    grid-area: delete;
+
+    align-self: center;
+  }
+
+
+  .delete-button {
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    border-radius: 9px;
+  }
+
+
+  .delete-text {
+    display: none;
+  }
+
+
+  .category-badge {
+    padding: 5px 9px;
+
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .list-page {
+    padding: 17px 10px;
+  }
+
+
+  .list-header h1 {
+    font-size: 21px;
+  }
+
+
+  .list-header p {
+    font-size: 11px;
+  }
+
+
+  .food-row {
+    grid-template-columns:
+      58px
+      1fr
+      auto;
+
+    gap: 7px 10px;
+
+    padding: 15px 12px;
+  }
+
+
+  .food-list-image {
+    width: 55px;
+    height: 55px;
+  }
+
+
+  .food-name h3 {
+    font-size: 13px;
+  }
+
+
+  .food-name span {
+    font-size: 9px;
+  }
+
+
+  .food-price {
+    font-size: 13px;
+  }
+
+
+  .category-badge {
+    font-size: 9px;
+
+    padding: 4px 7px;
+  }
+
+
+  .empty-list {
+    min-height: 280px;
+  }
+
+}
+
+/* List page css ends */
+
 
 .admin-gif
 {

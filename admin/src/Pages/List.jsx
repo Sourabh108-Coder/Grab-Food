@@ -1,145 +1,204 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const List = () => {
 
-  const url="http://localhost:4000";
+  const url = "http://localhost:4000";
 
-  const[list,setlist]=useState([]);
+  const [list, setList] = useState([]);
 
-  const fetchlist=async ()=>
-  {
-     try
-     {
-      const response= await axios.get(`${url}/api/v1/grabfood/list`);
-      console.log(response.data.data);
-      toast.success("Listed Success-Fully");
-
-      setlist(response.data.data);
-
-     }
-     
-     catch(error)
-     {
-      console.log("Error Occured"+error);
-      toast.info("Error in Listing");
-     }
-
-  }
-
-  const removefood=async(foodid)=>
-  {
+  const fetchlist = async () => {
     try {
-      
-      const res=await axios.post(`${url}/api/v1/grabfood/remove`,{Id:foodid});
+      const response = await axios.get(
+        `${url}/api/v1/grabfood/list`
+      );
+
+      console.log(response.data.data);
+
+      setList(response.data.data);
+
+    } catch (error) {
+      console.log("Error Occured", error);
+      toast.error("Error in Listing");
+    }
+  };
+
+  const removefood = async (foodid) => {
+    try {
+
+      const res = await axios.post(
+        `${url}/api/v1/grabfood/remove`,
+        { Id: foodid }
+      );
+
       console.log(res.data);
 
-      toast.success("Item Removed Success-Fully");
+      toast.success("Item Removed Successfully");
 
       await fetchlist();
-    } 
-    catch (error) {
-      toast.error("Error in Removal of item")
+
+    } catch (error) {
+
+      console.log(error);
+      toast.error("Error in Removal of Item");
+
     }
-  }
+  };
 
-  useEffect(()=>
-    {
-      fetchlist();
-    },[])
-  
+  useEffect(() => {
+    fetchlist();
+  }, []);
+
   return (
-    <div className='listi'>
-     <h1 className='list-head'>All Food List</h1>
+    <div className="list-page">
 
-     {/* <div>
-      <b>Image</b>
-      <b>Name</b>
-      <b>Price</b>
-      <b>Category</b>
-      <b>Action</b>
-     </div> */}
+      {/* ================= HEADER ================= */}
 
-     <div className='list-table-format title'>
+      <div className="list-header">
 
-               <b>Image</b>
-               <b>Name</b>
-               <b>Price</b>
-               <b>Category</b>
-               <b>Action</b>
+        <div>
+          <h1>Food List</h1>
+
+          <p>
+            Manage all the food items available in your menu.
+          </p>
+        </div>
+
+        <div className="list-count">
+          <span>{list.length}</span>
+          <small>Food Items</small>
+        </div>
+
       </div>
 
 
-               {/* <div className='list-table-format1 title' >
+      {/* ================= TABLE CARD ================= */}
 
-                      <img src="https://media.giphy.com/media/3oKIPdQyoFG3RSSOL6/giphy.gif" className='listi-img'/>
-                      <p>Dosa</p>
-                      <p>50</p>
-                      <p>Chinese</p>
-                      <p>X</p>
+      <div className="list-card">
 
+        {/* TABLE HEADER */}
 
-                      <img src="https://media.giphy.com/media/3oKIPdQyoFG3RSSOL6/giphy.gif" className='listi-img'/>
-                      <p>Dosa</p>
-                      <p>50</p>
-                      <p>Chinese</p>
-                      <p>X</p>
+        <div className="list-table-header">
 
-                      <img src="https://media.giphy.com/media/3oKIPdQyoFG3RSSOL6/giphy.gif" className='listi-img'/>
-                      <p>Dosa</p>
-                      <p>50</p>
-                      <p>Chinese</p>
-                      <p>X</p>
+          <div>Food</div>
+          <div>Name</div>
+          <div>Price</div>
+          <div>Category</div>
+          <div>Action</div>
 
-                      <img src="https://media.giphy.com/media/3oKIPdQyoFG3RSSOL6/giphy.gif" className='listi-img'/>
-                      <p>Dosa</p>
-                      <p>50</p>
-                      <p>Chinese</p>
-                      <p>X</p>
+        </div>
 
 
-                      <img src="https://media.giphy.com/media/3oKIPdQyoFG3RSSOL6/giphy.gif" className='listi-img'/>
-                      <p>Dosa</p>
-                      <p>50</p>
-                      <p>Chinese</p>
-                      <p>X</p>
+        {/* ================= FOOD LIST ================= */}
+
+        {list.length > 0 ? (
+
+          <div className="food-list">
+
+            {list.map((item) => (
+
+              <div
+                className="food-row"
+                key={item._id}
+              >
+
+                {/* IMAGE */}
+
+                <div className="food-image-container">
+
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="food-list-image"
+                  />
+
+                </div>
 
 
-                      <img src="https://media.giphy.com/media/3oKIPdQyoFG3RSSOL6/giphy.gif" className='listi-img'/>
-                      <p>Dosa</p>
-                      <p>50</p>
-                      <p>Chinese</p>
-                      <p>X</p>
+                {/* NAME */}
 
-                      <img src="https://media.giphy.com/media/3oKIPdQyoFG3RSSOL6/giphy.gif" className='listi-img'/>
-                      <p>Dosa</p>
-                      <p>50</p>
-                      <p>Chinese</p>
-                      <p>X</p>
+                <div className="food-name">
 
-                     
-              </div> */}
+                  <h3>{item.name}</h3>
+
+                  <span>Food Item</span>
+
+                </div>
 
 
-      {
-        list.map((item,index)=>{
-          return(
-            <div className='list-table-format1 title' >
+                {/* PRICE */}
 
-              <img src={item.image} className='listi-img'/>
-              <p>{item.name}</p>
-              <p>{item.price}</p>
-              <p>{item.category}</p>
-              <p className='cross' onClick={() => removefood(item._id)}>X</p>
+                <div className="food-price">
+
+                  ₹{item.price}
+
+                </div>
+
+
+                {/* CATEGORY */}
+
+                <div>
+
+                  <span className="category-badge">
+                    {item.category}
+                  </span>
+
+                </div>
+
+
+                {/* ACTION */}
+
+                <div>
+
+                  <button
+                    className="delete-button"
+                    onClick={() => removefood(item._id)}
+                    title="Delete food"
+                  >
+
+                    <span className="delete-icon">
+                      🗑
+                    </span>
+
+                    <span className="delete-text">
+                      Delete
+                    </span>
+
+                  </button>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        ) : (
+
+          /* ================= EMPTY STATE ================= */
+
+          <div className="empty-list">
+
+            <div className="empty-icon">
+              🍽️
             </div>
-          )
-        })
-      }
-     
-     </div>
-   
-  )
-}
 
-export default List
+            <h2>No Food Items Found</h2>
+
+            <p>
+              You haven't added any food items to your menu yet.
+            </p>
+
+          </div>
+
+        )}
+
+      </div>
+
+    </div>
+  );
+};
+
+export default List;
