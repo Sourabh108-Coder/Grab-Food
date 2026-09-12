@@ -105,7 +105,33 @@ Food App/
    - 🔀 Create a Pull Request
 
 
-## Screenshots
+## 📸 Screenshots
+
+### 🍽️ Customer Experience
+
+| 🏠 Home | 🍔 Explore Food |
+| --- | --- |
+| ![User Home Page](./screenshots/User_Home.png) | ![Food Menu](./screenshots/Dish_Explore.png) |
+
+| 🛒 Cart | 💰 Cart Totals |
+| --- | --- |
+| ![Shopping Cart](./screenshots/Cart.png) | ![Cart Totals](./screenshots/Cart_Totals.png) |
+
+| 💳 Payment | 📦 My Orders |
+| --- | --- |
+| ![Payment Page](./screenshots/Payment.png) | ![My Orders](./screenshots/My_Orders.png) |
+
+---
+
+### 🧑‍💼 Admin Dashboard
+
+| 📊 Dashboard | ➕ Add Products |
+| --- | --- |
+| ![Admin Dashboard](./screenshots/Admin_Dashboard.png) | ![Admin Add Products](./screenshots/Admin_Add.png) |
+
+| 🍔 Product List | 📦 Orders |
+| --- | --- |
+| ![Admin Products](./screenshots/Admin_lists.png) | ![Admin Orders](./screenshots/Admin_Orders.png) |
 
 
 
