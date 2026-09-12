@@ -33,22 +33,15 @@ const Add = () => {
     event.preventDefault();
 
     try {
-      console.log(adddata);
-
       const response = await axios.post(
         `${url}/api/v1/grabfood/addfood`,
         adddata
       );
 
-      console.log(response);
-      console.log("Data entered successfully");
-
       toast.success("Data Inserted Success-Fully")
     }
 
     catch (error) {
-      console.log("Error in data insertion" + error);
-
       toast.error("Error in Insertion")
     }
   }

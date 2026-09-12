@@ -14,12 +14,9 @@ const List = () => {
         `${url}/api/v1/grabfood/list`
       );
 
-      console.log(response.data.data);
-
       setList(response.data.data);
 
     } catch (error) {
-      console.log("Error Occured", error);
       toast.error("Error in Listing");
     }
   };
@@ -32,15 +29,11 @@ const List = () => {
         { Id: foodid }
       );
 
-      console.log(res.data);
-
       toast.success("Item Removed Successfully");
 
       await fetchlist();
 
     } catch (error) {
-
-      console.log(error);
       toast.error("Error in Removal of Item");
 
     }

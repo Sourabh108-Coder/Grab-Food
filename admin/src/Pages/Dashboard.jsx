@@ -20,9 +20,6 @@ const Dashboard = () => {
       }
 
     } catch (error) {
-
-      console.log("Dashboard Error:", error);
-
       toast.error("Error in Fetching Dashboard");
 
     } finally {

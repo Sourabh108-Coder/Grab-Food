@@ -48,8 +48,6 @@ const PlaceOrder = () => {
          }
       })
 
-      console.log(orderItems);
-
       let orderdata={
          address:data,
          items:orderItems,
@@ -90,11 +88,9 @@ const PlaceOrder = () => {
                     order_id: orderId, // Razorpay Order ID from backend
                     handler: async function (response) {
                         // Handle successful payment
-                        console.log(response);
                         toast.success("Payment Successful!");
 
                         const val=await axios.post("http://localhost:4000/api/v1/grabfood/verify",{orderid:newid,success:"true"});
-                        console.log("hello"+val);
                         // Send the payment details to the backend to verify payment
                         // Call your backend API to confirm the payment and mark the order as paid
 

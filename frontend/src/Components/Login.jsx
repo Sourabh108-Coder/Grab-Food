@@ -3,6 +3,7 @@ import { SlClose } from "react-icons/sl";
 import axios from "axios";
 import { useContext } from 'react';
 import { Storecontext } from '../Context/Storecontext';
+import { toast } from 'react-toastify';
 
 const Login = ({showlogin}) => {
 
@@ -53,14 +54,12 @@ const Login = ({showlogin}) => {
         {
             settoken(res.data.data);
             localStorage.setItem("token",res.data.data);
-            console.log(res.data.data)
             showlogin(false);
-            console.log("bruhh !!!");
         }
 
         else
         {
-            alert(res.data.message);
+            toast.info(res.data.message);
         }
     }
 

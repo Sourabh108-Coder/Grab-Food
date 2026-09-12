@@ -18,7 +18,6 @@ const Fooddisplay = ({category}) => {
             {
               if(category==="All" || item.category===category)
               {
-                // console.log(item._id);
                 return<Fooditem id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} key={index}/>
               }
             }

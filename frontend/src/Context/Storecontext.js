@@ -44,25 +44,18 @@ function StorecontextProvider(props)
 
     const getcarttotalamount=()=>{
 
-        // console.log('Cart items:', cartitem);
-        // console.log('Food list:', food_list);
-
         let totalAmount=0;
 
         for(const item in cartitem)
         {
             if(cartitem[item]>0)
             {
-                console.log("hi jii"+item);
                
                 let product=food_list.find((buy)=>buy._id===/*Number*/(item));
-
-                console.log("Uff"+product);
                 
                 if(product)
                 {
                     totalAmount=totalAmount+(product.price*cartitem[item]);
-                    console.log("hello"+totalAmount);
                 }
 
             }
@@ -78,7 +71,6 @@ function StorecontextProvider(props)
 
         setfoodlist(res.data.data);
 
-        console.log(res.data.data);
        }
 
        catch(error)
@@ -93,7 +85,6 @@ function StorecontextProvider(props)
         try
         {
              const res=await axios.post("http://localhost:4000/api/v1/grabfood/getcart",{},{headers:{token}});
-             console.log("Hlo mai aagya hu",res.data.data);
              setcartitem(res.data.data);
         }
 
@@ -105,8 +96,6 @@ function StorecontextProvider(props)
     }
 
     useEffect(()=>{
-
-        console.log(cartitem);
 
     },[cartitem])
 

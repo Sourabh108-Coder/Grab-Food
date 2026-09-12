@@ -15,7 +15,6 @@ const Order = () => {
       const res = await axios.get("http://localhost:4000/api/v1/grabfood/listadmin");
 
       if (res.data.success) {
-        console.log("hello" + res.data.data);
         setlistdata(res.data.data);
         toast.success("Fetched Successfully");
       }

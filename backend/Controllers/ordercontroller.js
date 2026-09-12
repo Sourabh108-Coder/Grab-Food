@@ -97,8 +97,6 @@ exports. verifyorder=async(req,res)=>
         {
             await orderModel.findByIdAndUpdate(orderid,{Payment:true});
 
-            console.log("hello"+orderid);
-
             res.status(201).json(
                 {
                     success:true,
