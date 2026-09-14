@@ -63,7 +63,7 @@ exports.Placeorder=async(req,res)=>
         });
 
         // Send the Razorpay order details to the frontend
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             data: {
                 orderId: razorpayOrder.id,  // Razorpay order ID
@@ -78,7 +78,7 @@ exports.Placeorder=async(req,res)=>
     catch (error)
     {
         console.error(error);
-        res.status(400).json(
+        return res.status(400).json(
         {
             success: false,
             message: "Error in Placing Order",
@@ -97,7 +97,7 @@ exports. verifyorder=async(req,res)=>
         {
             await orderModel.findByIdAndUpdate(orderid,{Payment:true});
 
-            res.status(201).json(
+            return res.status(201).json(
                 {
                     success:true,
                     message:"Paid",
@@ -109,7 +109,7 @@ exports. verifyorder=async(req,res)=>
         {
             await orderModel.findByIdAndDelete(orderid,{Payment:false});
 
-            res.status(400).json(
+            return res.status(400).json(
                 {
                     success:false,
                     message:"Not Paid",
@@ -121,7 +121,7 @@ exports. verifyorder=async(req,res)=>
 
     catch(error)
     {
-        res.status(401).json(
+        return res.status(401).json(
             {
                 success:false,
                 message:error,
@@ -137,7 +137,7 @@ exports.userorders=async(req,res)=>
     {
         const orders=await orderModel.find({userId:req.body.userId});
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 data:orders, 
@@ -147,7 +147,7 @@ exports.userorders=async(req,res)=>
 
     catch(error)
     {
-        res.status(401).json(
+        return res.status(401).json(
             {
                 success:false,
                 data:error,
@@ -163,7 +163,7 @@ exports.listorders=async(req,res)=>
     {
         const orders=await orderModel.find({});
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 data:orders,
@@ -174,7 +174,7 @@ exports.listorders=async(req,res)=>
 
     catch(error)
     {
-        res.status(401).json(
+        return res.status(401).json(
             {
                 success:false,
                 data:error,
@@ -192,7 +192,7 @@ exports.updatestatus=async(req,res)=>
 
         await orderModel.findByIdAndUpdate(req.body.orderid,{status:req.body.status});
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 message:"Status Updated",
@@ -203,7 +203,7 @@ exports.updatestatus=async(req,res)=>
     catch(error)
     {
 
-        res.status(400).json(
+        return res.status(400).json(
             {
                 success:false,
                 data:error.message,

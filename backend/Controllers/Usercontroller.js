@@ -28,7 +28,7 @@ exports.registeruser=async(req,res)=>
 
         if(exist)
         {
-            res.status(400).json(
+            return res.status(400).json(
                 {
                     success:false,
                     message:"Account Already exist !!",
@@ -38,7 +38,7 @@ exports.registeruser=async(req,res)=>
 
         if(!validator.isEmail(email))
         {
-            res.status(400).json(
+            return res.status(400).json(
                 {
                     success:false,
                     message:"Enter a valid Email !!",
@@ -48,7 +48,7 @@ exports.registeruser=async(req,res)=>
 
         if(password.length<8)
         {
-            res.status(200).json(
+            return res.status(200).json(
                 {
                     success:false,
                     message:"Please Enter a Strong Password ",
@@ -72,7 +72,7 @@ exports.registeruser=async(req,res)=>
 
         const token=createtoken(User._id);
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 data:token,
@@ -85,7 +85,7 @@ exports.registeruser=async(req,res)=>
     catch(error)
     {
 
-        res.status(500).json(
+        return res.status(500).json(
             {
                 success:false,
                 data:error,
@@ -105,7 +105,7 @@ exports.loginuser=async(req,res)=>
 
         if(!User)
         {
-            res.status(200).json(
+            return res.status(200).json(
             {
                 status:false,
                 message:"Don't have Such Account",
@@ -117,7 +117,7 @@ exports.loginuser=async(req,res)=>
 
         if(!ismatch)
         {
-            res.status(400).json(
+            return res.status(400).json(
             {
                 status:false,
                 message:"Password Is Invalid",
@@ -127,7 +127,7 @@ exports.loginuser=async(req,res)=>
 
         const token=createtoken(User._id);
 
-        res.status(200).json(
+        return res.status(200).json(
             {
                 success:true,
                 data:token,
@@ -138,7 +138,7 @@ exports.loginuser=async(req,res)=>
 
     catch(error)
     {
-        res.status(400).json(
+        return res.status(400).json(
         {
             success:false,
             data:error,
