@@ -48,19 +48,27 @@ const Login = ({showlogin}) => {
             newurl+="/api/v1/grabfood/register";
         }
 
-        const res=await axios.post(newurl,formdata);
-
-        if(res.data.success)
+        try
         {
-            settoken(res.data.data);
-            localStorage.setItem("token",res.data.data);
-            showlogin(false);
-        }
 
-        else
-        {
-            toast.info(res.data.message);
-        }
+             const res=await axios.post(newurl,formdata);
+
+             if(res.data.success)
+             {
+                 settoken(res.data.data);
+                 localStorage.setItem("token",res.data.data);
+                 showlogin(false);
+             }
+
+             else
+             {
+                 toast.info(res.data.message);
+             }
+         }
+         catch (error) 
+         {
+             toast.error(error.response?.data?.message || "Something went wrong");
+         }
     }
 
   return (

@@ -105,7 +105,7 @@ exports.loginuser=async(req,res)=>
 
         if(!User)
         {
-            return res.status(200).json(
+            return res.status(401).json(
             {
                 status:false,
                 message:"Don't have Such Account",
