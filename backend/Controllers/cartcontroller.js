@@ -20,7 +20,7 @@ exports. addtocart=async(req,res)=>
 
         await Usermodel.findByIdAndUpdate(req.body.userId,{cartData});
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 message:"Added to Cart",
@@ -30,7 +30,7 @@ exports. addtocart=async(req,res)=>
 
     catch(error)
     {
-        res.status(400).json(
+        return res.status(400).json(
             {
                 success:false,
                 data:error,  
@@ -55,7 +55,7 @@ exports. removefromcart=async(req,res)=>
 
         await Usermodel.findByIdAndUpdate(req.body.userId,{cartData});
 
-        res.status(201).json(
+        return res.status(201).json(
         {
             success:true,
             message:"Removed SuccessFully",
@@ -64,7 +64,7 @@ exports. removefromcart=async(req,res)=>
 
     catch(error)
     {
-        res.status(400).json(
+        return res.status(400).json(
             {
                 success:false,
                 data:error,
@@ -82,7 +82,7 @@ exports. getcart=async(req,res)=>
 
         let cartData=await userdata.cartData;
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 data:cartData,
@@ -93,7 +93,7 @@ exports. getcart=async(req,res)=>
 
     catch(error)
     {
-        res.status(400).json(
+        return res.status(400).json(
             {
                 success:false,
                 data:error,

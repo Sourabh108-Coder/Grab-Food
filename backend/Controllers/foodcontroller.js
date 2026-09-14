@@ -9,7 +9,7 @@ exports.addfood=async(req,res)=>
 
         const foodmode=foodModel.create({image,name,description,price,category});
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 data:foodmode,
@@ -20,7 +20,7 @@ exports.addfood=async(req,res)=>
 
     catch(error)
     {
-        res.status(500).json(
+        return res.status(500).json(
             {
                 success:false,
                 data:"Internal Server Error",
@@ -36,7 +36,7 @@ exports.listfood=async(req,res)=>
     {
         const foods=await foodModel.find({});
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 data:foods,
@@ -48,7 +48,7 @@ exports.listfood=async(req,res)=>
     
     catch(error)
     {
-        res.status(404).json(
+        return res.status(404).json(
             {
                 success:false,
                 data:"Error in Fetching Data",
@@ -67,7 +67,7 @@ exports.removefood=async(req,res)=>
 
     try
     {
-        res.status(201).json(
+        return res.status(201).json(
             {
                 success:true,
                 data:food,
@@ -78,7 +78,7 @@ exports.removefood=async(req,res)=>
 
     catch(error)
     {
-        res.status(404).json(
+        return res.status(404).json(
             {
                 success:false,
                 data:"Error in Deleting Data",
